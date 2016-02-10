@@ -1,0 +1,13 @@
+/* Make the body 100% of the browser viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+  font-family: font(primary);
+}
+
+img {
+  pointer-events: none;
+}

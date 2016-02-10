@@ -17,6 +17,9 @@ $enable-flex: true;
 @import "partials/nav";
 @import "partials/slide";
 
+// Import document wide rules
+@import "partials/global";
+
 img {
   pointer-events: none;
 }
