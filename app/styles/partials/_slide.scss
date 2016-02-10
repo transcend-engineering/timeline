@@ -38,5 +38,13 @@ section {
 
 section#one { background-color: $bg; }
 section#two { background-color: darken($bg, 10%); }
-section#three { background-color: lighten($bg, 5%); }
-section#four { background-color:  darken($bg, 10%); }
+section#three {
+  background-color: lighten($bg, 5%);
+}
+section#four {
+  background-color:  darken($bg, 10%);
+  transition: all 0.4s linear;
+  &.is-active {
+    background-color: #222222;
+  }
+}
