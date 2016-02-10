@@ -1,4 +1,4 @@
-$bg: color(grey);
+$bg: white;
  
 /* Make each section 100% of the browser viewport height */
 section {
@@ -6,40 +6,28 @@ section {
   position: relative;
   text-align: center;
   
-  h1 {
-    padding: 20% 0 0 0;
-    margin: 0;
-    text-align: center;
-    font-size: 36px;
-    color: rgba(0, 0, 0, 0.9);
-    position: relative;
+  .month-border {
+    border: 2em solid color(outline-blue);
+    padding: 1em;
+    margin: 0 auto;
+    max-width: 35%;
   }
   
-  h1:before {
-    content: '❤';
-    display: block;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
+  h2 {
+    margin: 0;
     text-align: center;
-    width: 100px;
-    margin-left: -50px;
-    color: #ff466a;
-    font-size: 30px;
+    position: relative;
   }
 
-  p {
+  h1 {
+    margin: 0;
+    width: 100%;
+    font-size: 3.75em !important;
     text-align: center;
-    color: rgba(0, 0, 0, 0.5);
   }
 
   strong {
     color: rgba(0, 0, 0, 0.9);
-  }
-  
-  .inner {
-    margin: 0 auto;
-    max-width: 85%;
   }
   
   .innerText {
