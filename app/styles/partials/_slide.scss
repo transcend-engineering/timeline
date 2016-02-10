@@ -7,6 +7,7 @@ section {
   text-align: center;
   
   .month-border {
+    display: table;
     border: 2em solid color(outline-blue);
     padding: 1em;
     margin: 0 auto;

@@ -36,6 +36,7 @@
   var wh = window.innerHeight,
     $iphone = $('.iphone'),
     $mouse = $('.mouse-scroll'),
+    $timeline = $('.timeline'),
     $innerS1 = $('.innerS1'),
     $innerS2 = $('.innerS2'),
     $innerS3 = $('.innerS3'),
@@ -67,13 +68,14 @@
       .addTo(ctrl);
   });
   
-  var mouseFade = new TimelineMax();
-  mouseFade.to($mouse, 0.5, {opacity: 0});
+  var mouseFadeTimeIn = new TimelineMax();
+  mouseFadeTimeIn
+    .to($mouse, 0.5, {opacity: 0});
   
   new ScrollMagic.Scene({
-      duration: '50%'
+      duration: '70%'
   })
-  .setTween(mouseFade)
+  .setTween(mouseFadeTimeIn)
   .triggerElement($('.hero')[0])
   .addTo(ctrl);
   
@@ -81,7 +83,8 @@
   var iphoneIntroTl = new TimelineMax();
   iphoneIntroTl
       .from($iphone, 1, {opacity: 0, yPercent: 50,xPercent: 100, ease: Power4.easeInOut})
-      .to($innerS1, 0.5, {opacity: 0, yPercent: -5, scale: 0.98}, '0');
+      .to($innerS1, 0.5, {opacity: 0, yPercent: -5, scale: 0.98}, '0')
+      .from($timeline, 0.75, {opacity: 0}, '0');
   
   // iPhone back to stylesheet position
   new ScrollMagic.Scene({
