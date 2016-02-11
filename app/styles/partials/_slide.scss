@@ -2,14 +2,23 @@ $bg: white;
  
 /* Make each section 100% of the browser viewport height */
 section {
-  height: 100%;
+  height: 90%;
   position: relative;
   text-align: center;
   
   .month-border {
+    margin: 0 auto;
+    position: relative;
+    z-index: 99;
     display: table;
     border: 2em solid color(outline-blue);
+    background: white;
     padding: 1em;
+  }
+  
+  .innerS1 {
+    position: relative;
+    z-index: 99;
     margin: 0 auto;
     max-width: 35%;
   }
@@ -17,7 +26,6 @@ section {
   h2 {
     margin: 0;
     text-align: center;
-    position: relative;
   }
 
   h1 {
@@ -42,27 +50,30 @@ section {
   /* iPhone/Card positioned to the left - this is a default position */
   .iphone {
     z-index: 2;
-    width: 290px;
-    height: 600px;
-    border-radius: 10px;
+    width: 70%;
+    height: 300px;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-150%, -50%);
-    background-color: #3757D0;
-    background-image: -webkit-radial-gradient(#81bcff, #5d7fce);
-    background-image: radial-gradient(#81bcff, #5d7fce);
+    top: 65%;
+    left: 0;
+    right: 10%;
+    margin: 0 auto;
+    background-color: #eef;
+    border: 2px dashed #eee;
+  }
+  
+  .iphone h2, .iphone h1, .iphone p {
+    text-align: left;
+  }
+  
+  .iphone h1 {
+    margin: .125em 0 .5em 0;
   }
 
   /* Centered content of the ScrollMagic card */
   .iphone p {
-    font-size: 140px;
     margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25em;
+    font-weight: 400;
   }
 
   /* Letters hidden by default */
@@ -104,7 +115,6 @@ section {
 }
 
 section#one { background-color: $bg; }
-section#two { background-color: darken($bg, 10%); }
 section#three {
   background-color: lighten($bg, 5%);
 }

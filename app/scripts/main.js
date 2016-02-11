@@ -1,3 +1,7 @@
+function changeText(ele, text_content) {
+  ele.text = text_content;
+}
+
 (function($) {
  
 //  // Init ScrollMagic
@@ -37,6 +41,7 @@
     $iphone = $('.iphone'),
     $mouse = $('.mouse-scroll'),
     $timeline = $('.timeline'),
+    $circular = $('.circular-flex'),
     $innerS1 = $('.innerS1'),
     $innerS2 = $('.innerS2'),
     $innerS3 = $('.innerS3'),
@@ -49,14 +54,12 @@
   // init
   var ctrl = new ScrollMagic.Controller({
       globalSceneOptions: {
-          triggerHook: 'onLeave',
-          vertical: false
+          triggerHook: 'onLeave'
       }
   });
 
   // Create scene
   $("section").each(function() {
-
       new ScrollMagic.Scene({
           triggerElement: this,
           duration: '50%'
@@ -68,29 +71,29 @@
       .addTo(ctrl);
   });
   
-  var mouseFadeTimeIn = new TimelineMax();
-  mouseFadeTimeIn
+  var mouseFade = new TimelineMax();
+  mouseFade
     .to($mouse, 0.5, {opacity: 0});
   
   new ScrollMagic.Scene({
       duration: '70%'
   })
-  .setTween(mouseFadeTimeIn)
+  .setTween(mouseFade)
   .triggerElement($('.hero')[0])
   .addTo(ctrl);
   
   // iPhone intro animation Timeline
-  var iphoneIntroTl = new TimelineMax();
-  iphoneIntroTl
-      .from($iphone, 1, {opacity: 0, yPercent: 50,xPercent: 100, ease: Power4.easeInOut})
-      .to($innerS1, 0.5, {opacity: 0, yPercent: -5, scale: 0.98}, '0')
-      .from($timeline, 0.75, {opacity: 0}, '0');
+  var septemberIntro = new TimelineMax();
+  septemberIntro
+      .to($innerS1, 0.75, {xPercent: 140, yPercent: -5, scale: 0.5}, '0')
+      .from($timeline, 0.75, {opacity: 0}, '0')
+      .from($circular, 0.75, {opacity: 0, scale: 0.1});
   
   // iPhone back to stylesheet position
   new ScrollMagic.Scene({
-      duration: '70%'
+      duration: '50%'
   })
-  .setTween(iphoneIntroTl)
+  .setTween(septemberIntro)
   .triggerElement($('section#one')[0])
   .addIndicators({
     name:name
@@ -118,14 +121,16 @@
   
   // Content anim1
   var iphoneContent1Tl = new TimelineMax();
-  iphoneContent1Tl       
+  iphoneContent1Tl
+      .from($iphone, 1, {opacity: 0, yPercent: 50, ease: Power4.easeInOut}, '0')
       .to($screenA, 0.3, {yPercent: -30, autoAlpha: 0, ease: Power4.easeInOut})
       .fromTo($screenB, 1, {yPercent: 20, autoAlpha: 0}, {yPercent: 0, autoAlpha: 1, ease: Power4.easeInOut})
       .from($innerS3, 1, {autoAlpha: 0}, '-=0.7');
 
   // Add anim
   new ScrollMagic.Scene({
-      triggerElement: $('.innerS2 h2')[0],
+      triggerHook: 'onEnter',
+      triggerElement: $('section#two')[0],
       duration: '50%'
   })
   .setTween(iphoneContent1Tl)
