@@ -85,7 +85,7 @@ function changeText(ele, text_content) {
   // iPhone intro animation Timeline
   var septemberIntro = new TimelineMax();
   septemberIntro
-      .to($innerS1, 0.75, {xPercent: 140, yPercent: -5, scale: 0.5}, '0')
+      .to($innerS1, 0.75, {xPercent: 113.5, yPercent: -5, scale: 0.5}, '0')
       .from($timeline, 0.75, {opacity: 0}, '0')
       .from($circular, 0.75, {opacity: 0, scale: 0.1});
   
